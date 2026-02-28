@@ -1,53 +1,37 @@
-# Student Management System
+# Student Management System (Multi-Architecture Project)
 
-A desktop application designed to manage student records, courses, and grades. The system connects to an MS SQL Server database to provide real-time updates and persistence.
+Welcome to the **Student Management System** repository. This project showcases my journey and growth in backend and desktop development using the .NET ecosystem. 
 
-## Features
-- **Student Management:** Add, Update, Delete, and List students. Contains input validation and age verification.
-- **Course Management:** Create courses, update details, and list available courses.
-- **Grade Management:** Assign grades to students for respective courses. 
-- **Dashboard:** Offers an overview of total, male, and female student statistics.
-- **Printing capability:** Ability to print student lists properly using DGVPrinter.
+This repository contains **two different architectural implementations** of the same underlying system. It demonstrates a clear progression from classical, tightly-coupled desktop development to a modern, decoupled backend API.
 
-## Tech Stack
-- **Frontend:** Windows Forms (WinForms)
-- **Language:** C#
-- **Framework:** .NET Framework 4.7.2
-- **Database:** MS SQL Server
+---
 
-## Prerequisites
-- Windows OS
-- Visual Studio 2019 or later (or Rider)
-- .NET Framework 4.7.2 Developer Pack
-- MS SQL Server (e.g., SQL Server Express) or Azure Data Studio
+## 🏗️ Phase 1: The Classical Desktop App (V1)
+**Stack:** `C#` | `Windows Forms (.NET Framework 4.7.2)` | `ADO.NET` (Raw SQL)
 
-## Installation & Setup
+The initial version is a monolithic Windows Forms application. It handles UI, business logic, and database operations in a single app. I refactored this codebase to adhere to professional naming conventions, mitigate SQL injection risks, and establish a solid Object-Oriented foundation.
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/StudentManagementSystem.git
-   ```
+- **Details & Setup:** The code is located in the `Student Management System` folder.
+- **Database Script:** `database.sql` handles physical table creation for this architecture.
 
-2. **Database Setup**
-   - Open SQL Server Management Studio (SSMS) or Azure Data Studio (or VS Code with MSSQL extension).
-   - Run the provided `database.sql` script to create the `StudentManagementDB` database and necessary tables.
+---
 
-3. **Configure the Connection String**
-   - Open `App.config` inside the `Student Management System` folder.
-   - If your SQL instance doesn't use standard Windows Authentication or uses a different host (e.g., `.\SQLEXPRESS`), update the `connectionString` attribute.
-   ```xml
-   <connectionStrings>
-     <add name="DefaultConnection" 
-          connectionString="Server=.;Database=StudentManagementDB;Trusted_Connection=True;" 
-          providerName="System.Data.SqlClient" />
-   </connectionStrings>
-   ```
+## 🚀 Phase 2: The Modern Backend API (V2)
+**Stack:** `C#` | `ASP.NET Core 10 Web API` | `Entity Framework Core 10` (Code-First)
 
-4. **Run the Project**
-   - Rebuild the solution inside Visual Studio to restore NuGet packages.
-   - Press **Start** to run the application.
+To modernize the system and simulate a true enterprise environment, I rebuilt the backend entirely from scratch as a RESTful Web API. This version throws away manual ADO.NET SQL queries in favor of EF Core and replaces the Windows Forms UI with standalone HTTP endpoints (Swagger).
 
-## Best Practices Implemented
-- **Configuration Management**: Database configuration decoupled from code and stored in configuration files.
-- **Security Check**: Mitigation against common SQL Injection attacks using parameterized generic SQL queries.
-- **Consistent Naming**: Adherence to official C# variable standard (camelCase / PascalCase).
+- **Location:** `StudentManagement.API` folder.
+- **Highlights:** N-Tier Architecture, Dependency Injection, EF Core Migrations, Swagger Documentation.
+- **Details & Setup:** 👉 [Click here to view the API Documentation (README)](./StudentManagement.API/README.md)
+
+---
+
+## 🛠️ General Prerequisites
+- **IDE:** Visual Studio 2022, Visual Studio Code, or Rider.
+- **Database:** MS SQL Server (Express or Developer Edition).
+- **SDKs:** 
+  - .NET Framework 4.7.2 (for V1 WinForms)
+  - .NET 10 SDK (for V2 API)
+
+Feel free to explore both versions to see the coding progression!
