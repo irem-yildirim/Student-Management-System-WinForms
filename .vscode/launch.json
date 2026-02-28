@@ -1,0 +1,19 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Start Program (VS Code)",
+            "type": "clr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/Student Management System/Student Management System/bin/Debug/Student Management System.exe",
+            "args": [],
+            "cwd": "${workspaceFolder}/Student Management System/Student Management System/bin/Debug",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        }
+    ]
+}
